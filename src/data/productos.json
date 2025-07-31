@@ -1,0 +1,111 @@
+[
+  {
+    "id": "banano-001",
+    "nombre": "Bolsas Microperforadas",
+    "categoria": "Banano",
+    "descripcion": "Control de humedad y mejora la calidad del racimo.",
+    "tipo": "Cobertura",
+    "subtipo": "Microperforado",
+    "presentaciones": "Rollos por metro",
+    "modoDeUso": "Colocar sobre el racimo según protocolo técnico.",
+    "imagen": "/imagenes/productos/bolsas-banano.webp",
+    "botones": [
+      { "label": "Solicitar asesoría", "url": "/contacto" }
+    ]
+  },
+  {
+    "id": "banano-002",
+    "nombre": "Pamona",
+    "categoria": "Banano",
+    "descripcion": "Fungicida sistémico del grupo de los triazoles utilizado, de tipo formulación concentrado emulsionable para el control de diferentes enfermedades en cultivos.El producto llega hasta los sitios donde los patógenos se están desarrollando, incluso a los brotes jóvenes de la planta, impidiendo que las enfermedades completen su proceso de infección y por consiguiente produzcan daños irreversibles al cultivo.Es fitocompatible con los cultivos en los cuales se recomienda su uso",
+    "tipo": "Sistémico",
+    "subtipo": "Líquidos",
+    "presentaciones": "50 l, 5 l, 1 l.",
+    "modoDeUso": "Vierta la cantidad de producto en el tanque del recipiente a la mitad, agregue agua hasta completar la cantidad necesaria manteniendo la agitación.",
+    "imagen": "/imagenes/productos/pamona.webp",
+    "botones": [
+      { "label": "Mapa de agencias", "url": "/mapa" }
+    ]
+  },
+  {
+    "id": "banano-003",
+    "nombre": "Tratamiento Foliar",
+    "categoria": "Banano",
+    "descripcion": "Estimula crecimiento y previene enfermedades.",
+    "tipo": "Foliar",
+    "subtipo": "Sistémico",
+    "presentaciones": "1L, 5L, 20L",
+    "modoDeUso": "Diluir en agua y aplicar vía foliar cada 15 días.",
+    "imagen": "/imagenes/productos/foliar-banano.webp",
+    "botones": [
+      { "label": "Comprar por WhatsApp", "url": "https://wa.me/593..." }
+    ]
+  },
+  {
+    "id": "perro-001",
+    "nombre": "CROQUETAS DOG CHOW SELECCIÓN DE PROTEÍNAS",
+    "categoria": "Alimento Perro",
+    "descripcion": "Receta con ingredientes seleccionados para un sabor especial.En cada bocado tu perro podrá disfrutar del delicioso sabor del Cordero en tres exquisitas croquetas, toda una experiencia de sabor especificamente seleccionada para complementar la excelente nutrición de PURINA° DOG CHOW®.",
+    "tipo": "Alimento Perro",
+    "subtipo": "Croquetas",
+    "presentaciones": "2kg, 7.5Kg, 20kg",
+    "modoDeUso": "Selección de Proteinas hasta los 40 dias de gestación. Tras este periodo cambiar a PURINAS DOG CHOME Cachorros Minis y Pequeños.",
+    "imagen": "/imagenes/productos/croquetas.webp",
+    "botones": [
+      { "label": "Mapa de agencias", "url": "/mapa" },
+      { "label": "Comprar por WhatsApp", "url": "https://wa.me/593..." }
+    ]
+  },
+  {
+  "id": "jardineria-001",
+  "nombre": "Maiz",
+  "precio": 12.5,
+  "precioOriginal": 14.0,
+  "ventas": 60,
+  "categoria": "Jardineria",
+  "imagen": "/imagenes/maizamarillo.png"
+},
+{
+    "id": "acultura-001",
+    "nombre": "Nutripond",
+    "categoria": "Acultura",
+    "descripcion": "Suplemento multivitamínico para mejorar la resistencia y crecimiento de especies acuáticas.",
+    "tipo": "Vitaminas",
+    "subtipo": "Granulado",
+    "presentaciones": "Bolsa de 25kg",
+    "modoDeUso": "Aplicar directamente sobre el alimento, una vez al día.",
+    "imagen": "/imagenes/productos/nutripond.webp",
+    "botones": [
+      { "label": "Solicitar asesoría", "url": "/contacto" }
+    ]
+  },
+  {
+    "id": "acultura-002",
+    "nombre": "Oxigenador Azul",
+    "categoria": "Acultura",
+    "descripcion": "Solución líquida para aumentar los niveles de oxígeno disuelto en estanques y piscinas.",
+    "tipo": "Oxigenador",
+    "subtipo": "Líquido",
+    "presentaciones": "Botella 1L, 5L",
+    "modoDeUso": "Diluir y verter directamente al estanque en horario de baja temperatura.",
+    "imagen": "/imagenes/productos/oxigenador.webp",
+    "botones": [
+      { "label": "Comprar por WhatsApp", "url": "https://wa.me/593..." }
+    ]
+  },
+  {
+    "id": "acultura-003",
+    "nombre": "Biofloc Plus",
+    "categoria": "Acultura",
+    "descripcion": "Sistema de biofloculación para mejorar la calidad del agua y optimizar el crecimiento microbiano.",
+    "tipo": "Biofloculante",
+    "subtipo": "Polvo soluble",
+    "presentaciones": "Saco de 15kg",
+    "modoDeUso": "Mezclar con agua previamente aireada y dosificar cada 48 horas.",
+    "imagen": "/imagenes/productos/biofloc-plus.webp",
+    "botones": [
+      { "label": "Mapa de agencias", "url": "/mapa" }
+    ]
+  }
+  
+]

@@ -1,0 +1,119 @@
+/* Reset y estilos base */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animaciones desactivadas */
+body.animation-none {
+  animation: none !important;
+}
+
+/* Textos */
+p, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+}
+
+h1, h2, h3 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+  color: #2e7d32;
+}
+
+/* Botones e inputs */
+button, input, textarea {
+  border-radius: 6px;
+  border: 1px solid #888;
+  padding: 0.5rem;
+}
+
+/* Accesibilidad */
+
+/* Resaltar enlaces */
+.resaltar-enlaces a,
+.resaltar-enlaces button,
+.resaltar-enlaces input,
+.resaltar-enlaces label {
+  outline: 3px dashed #1976d2 !important;
+  background-color: #e3f2fd;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Ocultar imágenes */
+.ocultar-imagenes img {
+  display: none !important;
+}
+
+/* Invertir colores */
+.invertir-colores {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* Modo dislexia */
+.modo-dislexia {
+  font-family: 'Lexend Deca', Arial, sans-serif !important;
+}
+
+/* Modo monocromático */
+.modo-monocromatico {
+  filter: grayscale(100%) !important;
+}
+
+/* Skiplink (salto rápido para accesibilidad) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.3s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+:root {
+  --altura-linea: 1.5;
+  --espaciado-letra: 0.02em;
+}
+
+body{
+  line-height: var(--altura-linea);
+  letter-spacing: var(--espaciado-letra);
+  transition: all 0.3s ease;
+}
+html, body {
+  line-height: var(--altura-linea);
+  letter-spacing: var(--espaciado-letra);
+  font-family: var(--font-family, Arial, sans-serif);
+  transition: all 0.3s ease;
+}
+
+body * {
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  font-family: inherit !important;
+}
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #e8f5e9;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
