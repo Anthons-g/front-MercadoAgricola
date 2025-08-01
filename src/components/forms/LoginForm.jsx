@@ -13,6 +13,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from 'react-router-dom';
 import { apiFetch } from '../../apiFetch';
+import { useAuth } from '../../context/AuthContext'; // Importa el hook de autenticación
 
 export default function LoginForm({ onClose, onLoginSuccess }) {
   const [mostrarClave, setMostrarClave] = React.useState(false);
@@ -23,6 +24,7 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
   });
 
   const navigate = useNavigate();
+  const { login } = useAuth(); // Obtiene la función login del contexto
 
   const onSubmit = async (data) => {
     const email = data.email?.trim().toLowerCase();
@@ -36,21 +38,42 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
     if (nuevosErrores.email || nuevosErrores.password) return;
 
     try {
-      // apiFetch ya devuelve JSON o lanza error si status no es ok
-      const responseData = await apiFetch('/api/usuarios/login', {
+      const res = await apiFetch('/api/usuarios/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ correo: email, contraseña: password })
       });
 
+      let responseData = {};
+      try {
+        responseData = await res.json();
+      } catch {
+        // Si no es JSON válido, dejar vacío o manejar error general
+      }
+
+      if (res.status === 404) throw new Error('Usuario no encontrado');
+      if (res.status === 401) throw new Error('Contraseña incorrecta');
+      if (!res.ok) throw new Error(responseData.error || 'Error de autenticación');
+
       const { role, token, correo } = responseData;
 
-      if (role === 'admin' || role === 'usuario') {
+      // Actualiza el contexto con los datos del usuario logueado
+      login({
+        correo,
+        rol: role,
+        token
+      });
+
+      // Redirección según rol
+      if (role === 'admin') {
+        navigate('/comprar');
+      } else if (role === 'usuario') {
         navigate('/comprar');
       } else {
         throw new Error('Rol no reconocido');
       }
 
+      // Guarda en localStorage adicionalmente si quieres
       localStorage.setItem('token', token);
       localStorage.setItem('token-email', correo);
       localStorage.setItem('rol', role);
@@ -183,6 +206,7 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
     </Box>
   );
 }
+
 
 
 
