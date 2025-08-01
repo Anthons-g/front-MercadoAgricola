@@ -36,37 +36,23 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
     if (nuevosErrores.email || nuevosErrores.password) return;
 
     try {
-      const res = await apiFetch('/api/usuarios/login', {
+      // apiFetch ya devuelve JSON o lanza error si status no es ok
+      const responseData = await apiFetch('/api/usuarios/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ correo: email, contraseña: password })
       });
 
-      let responseData = {};
-      try {
-        responseData = await res.json();
-      } catch {
-        // Si no es JSON válido, dejar vacío o manejar error general
-      }
+      const { role, token, correo } = responseData;
 
-      if (res.status === 404) throw new Error('Usuario no encontrado');
-      if (res.status === 401) throw new Error('Contraseña incorrecta');
-      if (!res.ok) throw new Error(responseData.error || 'Error de autenticación');
-
-      const { role } = responseData;
-
-      // Redirección por rol institucional
-      if (role === 'admin') {
-        navigate('/comprar');
-      } else if (role === 'usuario') {
+      if (role === 'admin' || role === 'usuario') {
         navigate('/comprar');
       } else {
         throw new Error('Rol no reconocido');
       }
 
-      // Guardado visual de sesión
-      localStorage.setItem('token', responseData.token);
-      localStorage.setItem('token-email', responseData.correo);
+      localStorage.setItem('token', token);
+      localStorage.setItem('token-email', correo);
       localStorage.setItem('rol', role);
 
       if (onLoginSuccess) onLoginSuccess();
@@ -197,5 +183,6 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
     </Box>
   );
 }
+
 
 
