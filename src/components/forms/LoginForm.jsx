@@ -13,7 +13,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from 'react-router-dom';
 import { apiFetch } from '../../apiFetch';
-import { useAuth } from '../../context/AuthContext'; 
+import { useAuth } from '../../context/AuthContext';
 
 export default function LoginForm({ onClose, onLoginSuccess }) {
   const [mostrarClave, setMostrarClave] = React.useState(false);
@@ -24,7 +24,7 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
   });
 
   const navigate = useNavigate();
-  const { login } = useAuth(); 
+  const { login } = useAuth();
 
   const onSubmit = async (data) => {
     const email = data.email?.trim().toLowerCase();
@@ -38,21 +38,11 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
     if (nuevosErrores.email || nuevosErrores.password) return;
 
     try {
-      const res = await apiFetch('/api/usuarios/login', {
+      const responseData = await apiFetch('/api/usuarios/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ correo: email, contraseña: password })
       });
-
-      let responseData = {};
-      try {
-        responseData = await res.json();
-      } catch {
-      }
-
-      if (res.status === 404) throw new Error('Usuario no encontrado');
-      if (res.status === 401) throw new Error('Contraseña incorrecta');
-      if (!res.ok) throw new Error(responseData.error || 'Error de autenticación');
 
       const { role, token, correo } = responseData;
 
@@ -205,7 +195,3 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
     </Box>
   );
 }
-
-
-
-
