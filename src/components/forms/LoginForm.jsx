@@ -41,7 +41,7 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
       const res = await apiFetch('/api/usuarios/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ correo: email, contraseña: password })
+        body: JSON.stringify({ email: email, contraseña: password })
       });
 
       let responseData = {};
