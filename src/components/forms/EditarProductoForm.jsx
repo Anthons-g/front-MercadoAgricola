@@ -10,7 +10,7 @@ import {
   Alert,
   Snackbar,
 } from '@mui/material';
-import { apiFetch } from '../api/apiFetch';
+import { apiFetch } from '../../apiFetch';
 
 export default function EditarProductoForm() {
   const { id } = useParams();
