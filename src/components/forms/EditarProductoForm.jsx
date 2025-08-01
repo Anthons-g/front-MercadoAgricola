@@ -34,7 +34,7 @@ export default function AdminEditarProducto() {
   useEffect(() => {
     async function fetchProducto() {
       try {
-        const res = await apiFetch(/api/productos/${id});
+        const res = await apiFetch(`/api/productos/${id}`);
         if (!res.ok) throw new Error('Error al cargar el producto');
         const data = await res.json();
         setProducto({
@@ -75,9 +75,9 @@ export default function AdminEditarProducto() {
     try {
   const token = localStorage.getItem('token'); 
 
-  const res = await apiFetch(/api/productos/${id}, {
-    method: 'PUT',
-    headers: {
+ const res = await apiFetch(`/api/productos/${id}`, {
+  method: 'PUT',
+  headers: {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer ' + token
   },
