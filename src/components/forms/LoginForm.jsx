@@ -42,18 +42,23 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
         body: JSON.stringify({ correo: email, contraseña: password })
       });
 
-      const responseData = await res.json();
+      let responseData = {};
+      try {
+        responseData = await res.json();
+      } catch {
+        // Si no es JSON válido, dejar vacío o manejar error general
+      }
 
       if (res.status === 404) throw new Error('Usuario no encontrado');
       if (res.status === 401) throw new Error('Contraseña incorrecta');
       if (!res.ok) throw new Error(responseData.error || 'Error de autenticación');
 
-      const { rol } = responseData;
+      const { role } = responseData;
 
       // Redirección por rol institucional
-      if (rol === 'admin') {
+      if (role === 'admin') {
         navigate('/comprar');
-      } else if (rol === 'usuario') {
+      } else if (role === 'usuario') {
         navigate('/comprar');
       } else {
         throw new Error('Rol no reconocido');
@@ -62,7 +67,7 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
       // Guardado visual de sesión
       localStorage.setItem('token', responseData.token);
       localStorage.setItem('token-email', responseData.correo);
-      localStorage.setItem('rol', rol);
+      localStorage.setItem('rol', role);
 
       if (onLoginSuccess) onLoginSuccess();
       if (onClose) onClose();
@@ -192,3 +197,5 @@ export default function LoginForm({ onClose, onLoginSuccess }) {
     </Box>
   );
 }
+
+
